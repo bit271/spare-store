@@ -2,5 +2,6 @@
 target/
 build/
 .idea
+/uploads
 .env
 src/main/resources/application-dev.properties

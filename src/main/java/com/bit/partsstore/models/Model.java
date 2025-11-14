@@ -3,7 +3,12 @@ package com.bit.partsstore.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "models")
+@Table(
+        name = "models",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"name", "brand_id"})
+        }
+)
 public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,12 +17,18 @@ public class Model {
     @Column(nullable = false, unique = true)
     private String name;
 
-    public Model(Integer id, String name) {
+    @ManyToOne
+    @JoinColumn(name = "brand_id", nullable = false)
+    private Brand brand;
+
+    public Model(Integer id, String name, Brand brand) {
         this.id = id;
         this.name = name;
+        this.brand = brand;
     }
 
-    public Model() {}
+    public Model() {
+    }
 
     public Integer getId() {
         return id;
@@ -33,5 +44,13 @@ public class Model {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 }

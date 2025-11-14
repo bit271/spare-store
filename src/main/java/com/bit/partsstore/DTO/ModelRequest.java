@@ -2,6 +2,7 @@ package com.bit.partsstore.DTO;
 
 public class ModelRequest {
     private String name;
+    private Integer brandId;
 
     public String getName() {
         return name;
@@ -9,5 +10,13 @@ public class ModelRequest {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
     }
 }

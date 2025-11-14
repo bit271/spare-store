@@ -6,16 +6,16 @@ public class CarResponse {
     private Integer id;
     private String description;
     private Integer year;
-    private String imageName;
+    private String ImageUrl;
     private String brandName;
     private String modelName;
     private LocalDate dateAdd;
 
-    public CarResponse(Integer id, String description, Integer year, String imageName, String brandName, String modelName, LocalDate dateAdd) {
+    public CarResponse(Integer id, String description, Integer year, String ImageUrl, String brandName, String modelName, LocalDate dateAdd) {
         this.id = id;
         this.description = description;
         this.year = year;
-        this.imageName = imageName;
+        this.ImageUrl = ImageUrl;
         this.brandName = brandName;
         this.modelName = modelName;
         this.dateAdd = dateAdd;
@@ -45,12 +45,12 @@ public class CarResponse {
         this.year = year;
     }
 
-    public String getImageName() {
-        return imageName;
+    public String getImageUrl() {
+        return ImageUrl;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    public void setImageUrl(String imageUrl) {
+        this.ImageUrl = imageUrl;
     }
 
     public String getBrandName() {

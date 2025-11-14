@@ -34,9 +34,18 @@ public class Part {
     @Column(nullable = false)
     private Integer price;
 
-    public Part(Integer id, Car car, Category category, String name, Integer availableCount, String catalogNum, String description, String imageName, Integer price) {
-        this.id = id;
-        this.car = car;
+    public Part() {}
+
+    public Part(
+            Car      car,
+            Category category,
+            String   name,
+            Integer  availableCount,
+            Integer  price, String   catalogNum,
+            String   description,
+            String   imageName
+    ) {
+        this.car =  car;
         this.category = category;
         this.name = name;
         this.availableCount = availableCount;
@@ -46,14 +55,8 @@ public class Part {
         this.price = price;
     }
 
-    public Part() {}
-
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Car getCar() {

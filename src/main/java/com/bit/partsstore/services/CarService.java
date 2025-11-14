@@ -85,7 +85,7 @@ public class CarService {
                 car.getId(),
                 car.getDescription(),
                 car.getYear(),
-                car.getImageName(),
+                imageStorageService.getCarImageUrl(car.getImageName()),
                 car.getBrand().getName(),
                 car.getModel().getName(),
                 car.getDateAdd()

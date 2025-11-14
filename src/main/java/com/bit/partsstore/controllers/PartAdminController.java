@@ -2,7 +2,9 @@ package com.bit.partsstore.controllers;
 
 import com.bit.partsstore.DTO.PartRequest;
 import com.bit.partsstore.DTO.PartResponse;
+import com.bit.partsstore.models.Part;
 import com.bit.partsstore.services.PartService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +26,16 @@ public class PartAdminController {
         return ResponseEntity.ok(parts);
     }
 
-    @PostMapping
-    public ResponseEntity<PartResponse> addPart(@RequestBody PartRequest request) {
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<PartResponse> addPart(@ModelAttribute PartRequest request) {
         PartResponse response = partService.addPart(request);
         return ResponseEntity.ok(response);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Part> deletePart(@PathVariable int id) {
+        Part deletedPart = partService.deletePart(id);
+        return ResponseEntity.ok(deletedPart);
+    }
+
 }
